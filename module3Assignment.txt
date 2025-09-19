@@ -1,0 +1,143 @@
+
+public class Automobile {
+    
+    private String model;
+    private int year;
+    private String brand;
+    
+    public Automobile(){
+        model="noModel";
+        year=0;
+        brand="noBrand";
+    }
+    
+    public Automobile(String m,int y,String b){
+        model=m;
+        year=y;
+        brand=b;
+    }
+    
+    public int getYear(){
+        return year;
+    }
+    
+    @Override
+    public String toString(){
+        return "Brand: "+brand+" model: "+model+" year: "+year;
+    }
+    
+    @Override
+    public boolean  equals(Object o){
+        boolean x = super.equals(o);
+	if (x && (o instanceof Automobile)){
+            Automobile temp = (Automobile) o;
+            if (this.model.equalsIgnoreCase(temp.model)
+                &&  (this.brand.equalsIgnoreCase(temp.brand))
+		&&  (this.year==temp.year))
+                    return true; 
+		   }
+		return false;
+   } 
+    
+    public void honk(){
+        System.out.println("The automobile honks");
+    }
+    
+}
+
+
+public class Car extends Automobile {
+    
+    @Override
+    public String toString(){
+        return super.toString();
+    }
+    
+    @Override
+    public boolean  equals(Object o){
+        boolean x = super.equals(o);
+	return x;
+    } 
+    
+    public void accelerate(){
+        System.out.println("The car accelerates");
+    }
+    
+    public void stop(){
+        System.out.println("The car stops");
+    }
+    
+    public void reverse(){
+        System.out.println("The car reverses");
+    }
+    
+    @Override
+    public void honk(){
+        System.out.println("The car honks");
+    }
+    
+}
+
+
+public class SportsCar extends Automobile {
+    
+    @Override
+    public String toString(){
+        return super.toString();
+    }
+    
+    @Override
+    public boolean  equals(Object o){
+        boolean x = super.equals(o);
+	return x;
+   } 
+    
+    public void accelerate(){
+        System.out.println("The sports car accelerates");
+    }
+    
+    public void stop(){
+        System.out.println("The sports car stops");
+    }
+    
+    public void reverse(){
+        System.out.println("The sports car reverses");
+    }
+    
+    @Override
+    public void honk(){
+        System.out.println("The sports car honks");
+    }
+}
+
+
+public class SportsCar extends Automobile {
+    
+    @Override
+    public String toString(){
+        return super.toString();
+    }
+    
+    @Override
+    public boolean  equals(Object o){
+        boolean x = super.equals(o);
+	return x;
+   } 
+    
+    public void accelerate(){
+        System.out.println("The sports car accelerates");
+    }
+    
+    public void stop(){
+        System.out.println("The sports car stops");
+    }
+    
+    public void reverse(){
+        System.out.println("The sports car reverses");
+    }
+    
+    @Override
+    public void honk(){
+        System.out.println("The sports car honks");
+    }
+}
