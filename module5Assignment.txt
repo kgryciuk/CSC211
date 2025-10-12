@@ -1,0 +1,145 @@
+public class Student {
+	
+	private String name;
+	private int studentID;
+	private String major;
+	private double gpa;
+	
+	public Student() {
+		name="name";
+		major="undeclared";
+		gpa=0.0;
+		makeStudentID();
+	}
+	
+	public Student(String name,String major) {
+		this.name=name;
+		this.major=major;
+		gpa=0.0;
+		makeStudentID();
+	}
+	
+	public void setMajor(String major) {
+		this.major=major;
+	}
+	
+	public void setGpa(double gpa) {
+		this.gpa=gpa;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getMajor() {
+		return major;
+	}
+	
+	public double getGpa() {
+		return gpa;
+	}
+	
+	public int getID() {
+		return studentID;
+	}
+	
+	public boolean sameStudent(Student student) {
+		if(student.getName().equals(name)&&student.getMajor().equals(major)&&student.getID()==studentID&&student.getGpa()==gpa) {
+			return true;
+		}
+		return false;
+	}
+	
+	public String toString() {
+		return "Name: "+name+"\n"+"Major: "+major+"\n"+"GPA: "+gpa+"\n"+"Student ID: "+studentID;
+	}
+	
+	public int makeStudentID() {
+		int id=(int) (Math.random()*(100000-1))+1;
+		return id;
+	}
+	
+	@Test
+	public void doesntHaveName() { // test to check if the students name has been changed
+		Assertions.assertEquals("name",name);
+	}
+
+	@Test
+	public void doesntHaveMajor() { // test to check if the students major has been changed
+		Assertions.assertEquals("undeclared",major);
+	}
+
+}
+
+
+
+
+
+public class Ring {
+	
+	private double outerRadius;
+	private double innerRadius;
+	
+	public Ring() {
+		outerRadius=2.0;
+		innerRadius=1.0;
+	}
+	
+	public Ring(double outer,double inner) {
+		if(outer>inner) {
+			outerRadius=outer;
+			innerRadius=inner;
+		}
+		else {
+			outerRadius=inner;
+			innerRadius=outer;
+		}
+	}
+	
+	public double getOuter() {
+		return outerRadius;
+	}
+	
+	public double getInner() {
+		return innerRadius;
+	}
+	
+	public void setOuter(double outer) {
+		if(outer<innerRadius) {
+			outerRadius=innerRadius;
+			innerRadius=outer;
+		}
+		else
+			outerRadius=outer;
+	}
+	
+	public void setInner(double inner) {
+		if(inner>outerRadius) {
+			innerRadius=outerRadius;
+			outerRadius=inner;
+		}
+		else
+			innerRadius=inner;
+	}
+	
+	public double area() {
+		return Math.PI*(outerRadius*outerRadius-innerRadius*innerRadius);
+	}
+	
+	public String toString() {
+		return "The ring has an inner radius of "+getInner()+", an outer radius of "+getOuter()+" and an area of "+area();
+	}
+
+
+	@Test
+	public void doesntHaveOuterRadius() { // test to check if the rings outer radius has been changed
+		Assertions.assertEquals(2.0,outerRadius);
+	}
+
+	@Test
+	public void doesntHaveInnerRaius() { // test to check if the rings inner radius has been changed
+		Assertions.assertEquals(1.0,innerRadius);
+	}
+
+	
+}
