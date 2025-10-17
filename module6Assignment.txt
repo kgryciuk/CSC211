@@ -1,0 +1,36 @@
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class mod6 extends Application {
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		
+		Scene scene=new Scene(demoStackPane(),500,500);
+		stage.setScene(scene);
+		stage.setTitle("Employee Information Form");
+		stage.show();
+	}
+	
+	public Pane demoStackPane() {
+		StackPane sp=new StackPane();
+		
+		Button b=new Button("Submit");
+		TextField name=new TextField();
+		TextField id=new TextField();
+		TextField department=new TextField();
+		
+		sp.getChildren().addAll(name,id,department,b);
+		
+		return sp;
+	}
+
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+	
+}
