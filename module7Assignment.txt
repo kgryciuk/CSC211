@@ -1,0 +1,69 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
+
+
+public class mod7 {
+	
+	public static void main(String[] args) {
+		JFrame frame=new JFrame("Module 7");
+		JPanel panel=new JPanel();
+		
+		JLabel name=new JLabel("Name:");
+		JLabel email=new JLabel("Email:");
+		JLabel pass=new JLabel("Password:");
+		JLabel pass1=new JLabel("Confirm Password:");
+		
+		JTextField tfname=new JTextField();
+		JTextField tfemail=new JTextField();
+		JTextField tfpass=new JTextField();
+		JTextField tfpass1=new JTextField();//confirm
+		
+		JButton submit=new JButton("Submit");
+		JButton clear=new JButton("Clear");
+		
+		panel.setLayout(new GridLayout(5,2,4,4));
+		panel.add(name);
+		panel.add(tfname);
+		panel.add(email);
+		panel.add(tfemail);
+		panel.add(pass);
+		panel.add(tfpass);
+		panel.add(pass1);
+		panel.add(tfpass1);
+		panel.add(submit);
+		panel.add(clear);
+		
+		frame.add(panel);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.pack();
+		frame.setVisible(true);
+		
+		clear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tfname.setText(null);
+				tfemail.setText(null);
+				tfpass.setText(null);
+				tfpass1.setText(null);
+			}
+		});
+		submit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String n=tfname.getText();
+				String em=tfemail.getText();
+				String p=tfpass.getText();
+				String p1=tfpass1.getText();
+				if(n==""||em==""||p==""||p1=="")
+					JOptionPane.showConfirmDialog(frame,"Error","Error",JOptionPane.ERROR_MESSAGE);
+				
+				if(p.equals(p1))
+					JOptionPane.showMessageDialog(frame,"Name: "+n+"\nEmail: "+em+"\nPassword: "+p,"Submitted",JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showConfirmDialog(frame,"Error","Error",JOptionPane.ERROR_MESSAGE);
+			}
+		});
+	}
+}
