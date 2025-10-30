@@ -1,0 +1,55 @@
+interface Operation {
+    int compute(int a, int b);
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Anonymous inner class for addition
+        Operation add = new Operation() {
+            @Override
+            public int compute(int a, int b) {
+                return a + b;
+            }
+        };
+        // Anonymous inner class for multiplication
+        Operation multiply = new Operation() {
+            @Override
+            public int compute(int a, int b) {
+                return a * b;
+            }
+        };
+        // Anonymous inner class for subtraction
+        Operation subtract = new Operation() {
+            @Override
+            public int compute(int a, int b) {
+                return a - b;
+            }
+        };
+        // Anonymous inner class for division
+        Operation divide = new Operation() {
+            @Override
+            public int compute(int a, int b) {
+                return a / b;//doesn't give decimals
+            }
+        };
+        // Anonymous inner class for finding the largest number
+        Operation max = new Operation() {
+            @Override
+            public int compute(int a, int b) {
+                return (a > b) ? a : b; //True or False
+            }
+        };
+        
+        interfaceDemo(add,4,5);
+        interfaceDemo(multiply,4,5);
+        interfaceDemo(subtract,4,5);
+        interfaceDemo(divide,4,5);
+        interfaceDemo(max,4,5);
+        
+    }
+    
+    public static void interfaceDemo (Operation obj,int x,int y){
+        System.out.println("The operation result is: "+obj.compute(x,y));
+    }
+    
+}
