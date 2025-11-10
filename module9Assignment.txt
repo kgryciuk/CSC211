@@ -1,0 +1,135 @@
+
+public class GeometricObject {
+	// All Geometric objects have a color
+	private String color;
+	
+	public GeometricObject(String color){
+		this.color=color;
+	}
+	
+	public GeometricObject(){
+		this("blue");
+	}
+	
+	public String toString() {
+		return "GeometricObject: "+color;
+	}
+	
+}
+
+
+public class Rectangle extends GeometricObject {
+	
+	private double length;
+	private double width;
+	
+	public Rectangle() {
+		this("blue",1.0,2.0);// rectangle super is its color with a length of 1 and width of 2
+	}
+	
+	public Rectangle(String color,double length,double width) {//color is taken in by super, and length and width are taken by rectangle
+		super(color);
+		this.length=length;
+		this.width=width;
+	}
+	
+	public double getLength() {
+		return length;
+	}
+	
+	public void setLength(double l) {
+		length=l;
+	}
+	
+	public double getWidth() {
+		return width;
+	}
+	
+	public void setWidth(double w) {
+		width=w;
+	}
+	
+	public double getArea() {
+		return length*width;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString()+" Rectangle: Width is: "+width+" Length is: "+length+" Area is: "+this.getArea();
+	}
+	
+}
+
+
+
+public class Circle extends GeometricObject{
+	
+	private double radius;
+	
+	public Circle() {
+		this("blue",1.0);
+	}
+	
+	public Circle(String color,double radius) {
+		super(color);
+		this.radius=radius;
+	}
+	
+	public Circle(double r){
+		radius=r;
+	}
+	
+	public double getRadius() {
+		return radius;
+	}
+	
+	public void setRadius(double r) {
+		radius=r;
+	}
+	
+	public double getArea() {
+		return radius*radius*Math.PI;
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString()+" Circle: Radius is "+radius+" Area is: "+this.getArea();
+	}
+}
+
+
+public class TestCircle {
+
+	public static void main(String[] args) {
+		
+		Circle[]circles= new Circle[4];
+		circles[0]=new Circle(6);
+		circles[1]=new Circle(7);
+		circles[2]=new Circle(3);
+		circles[3]=new Circle(10);
+		double avgArea=getAverage(circles);
+		System.out.println("The average is"+avgArea);
+		
+	}
+	
+	public static double getAverage(Circle[]circles) {
+		double totalArea=0.0;
+		int count=0;
+		
+		for(Circle c:circles) {
+			if(c!=null) {
+				count++;
+				totalArea+=c.getArea();
+			}
+		}
+		return (count==0)?0.0:totalArea/count;
+	}
+	
+	public static Circle method1(Circle cir, int x) {
+		x=50;//parameter x
+		cir.setRadius(9);
+		
+		Circle c=new Circle(5);
+		return c;
+	}
+}
