@@ -1,0 +1,14 @@
+﻿* Common since java 8
+* Functional programming is about the objects not classes
+* Function can output other function
+* Functions and streams allow functional programming in java
+* @FunctionalInterface allows for only one method in interface
+* Streams and lambda allow for powerful concise code
+* Streams are immutable
+* forEach must be at end (terminal operation)
+* Stream<String>shoppingListStream=shoppingList.stream();
+* Stream<String>letters=Stream.of(“a”,”b”,”c”);
+* shoppingListStream.sorted().forEach(item->System.out.println(item))//prints out stream in alphabetical order
+* .toUpperCase() makes all characters capitalised
+* .filter(item->item.startsWith(“_”)) only gives items that start with _
+* .collect(Collectors.toList())
