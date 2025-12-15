@@ -13,11 +13,11 @@ public class Product {
 		sku=generateSKU();
 	}
 	
-	public String getItemName() {
+	public String getItemName() {//gives the items name
 		return itemName;
 	}
 	
-	public double getPrice() {
+	public double getPrice() {//gives the items price
 		return price;
 	}
 	
@@ -34,4 +34,5 @@ public class Product {
 		return sku;
 	}
 	
+
 }
